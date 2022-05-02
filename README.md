@@ -1,2 +1,2 @@
 # sharing-github
-Correct me if i wrong
+Correct me if i'm wrong
