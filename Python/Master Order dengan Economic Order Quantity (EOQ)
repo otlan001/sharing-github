@@ -1,0 +1,24 @@
+import math
+
+# Input data
+stok_minimum = int(input("Masukkan jumlah stok minimum: "))
+rata_rata_penjualan = int(input("Masukkan rata-rata penjualan per bulan: "))
+waktu_pengiriman = int(input("Masukkan waktu pengiriman dalam hari: "))
+biaya_pemesanan = int(input("Masukkan biaya pemesanan per pesanan: "))
+harga_barang = int(input("Masukkan harga barang per unit: "))
+biaya_penyimpanan = float(input("Masukkan biaya penyimpanan per unit per periode: "))
+
+# Hitung tingkat penggunaan per hari
+tingkat_penggunaan = rata_rata_penjualan / 30
+
+# Hitung tingkat pengisian per hari
+tingkat_pengisian = tingkat_penggunaan * waktu_pengiriman
+
+# Hitung jumlah pemesanan dengan metode EOQ
+jumlah_pemesanan = math.sqrt((2 * tingkat_penggunaan * 30 * biaya_pemesanan) / biaya_penyimpanan)
+
+# Cek jumlah pemesanan
+if jumlah_pemesanan < stok_minimum:
+    jumlah_pemesanan = stok_minimum
+
+print("Jumlah pemesanan:", jumlah_pemesanan)
